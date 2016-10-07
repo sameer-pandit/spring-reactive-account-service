@@ -1,8 +1,7 @@
 package com.example.creditcard;
 
 import com.example.data.BaseEntity;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.*;
 
 /**
  * A {@link CreditCard} entity is used for processing payments and belongs
@@ -11,13 +10,14 @@ import javax.persistence.*;
  * @author Kenny Bastani
  * @author Josh Long
  */
-@Entity
+//@Entity
 public class CreditCard extends BaseEntity {
 
-    private Long id;
+    @Id
+    private String id;
     private String number;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
     private CreditCardType type;
 
     public CreditCard() {
@@ -28,13 +28,11 @@ public class CreditCard extends BaseEntity {
         this.type = type;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

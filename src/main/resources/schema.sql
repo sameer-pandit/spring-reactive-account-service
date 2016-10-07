@@ -1,3 +1,4 @@
+/*
 DROP TABLE IF EXISTS account_addresses;
 DROP TABLE IF EXISTS account_credit_cards;
 DROP TABLE IF EXISTS customer;
@@ -71,4 +72,4 @@ CREATE TABLE IF NOT EXISTS account_credit_cards
   CONSTRAINT FK_b0tk2gq9bk6cggk5c4d33g3y4 FOREIGN KEY (credit_cards_id) REFERENCES credit_card (id),
   CONSTRAINT FK_lb5lhjdqfk50esr5g5733ppdo FOREIGN KEY (account_id) REFERENCES account (id)
 );
-CREATE UNIQUE INDEX UK_b0tk2gq9bk6cggk5c4d33g3y4 ON account_credit_cards (credit_cards_id);
+CREATE UNIQUE INDEX UK_b0tk2gq9bk6cggk5c4d33g3y4 ON account_credit_cards (credit_cards_id);*/

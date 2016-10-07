@@ -1,8 +1,8 @@
 package com.example.address;
 
 import com.example.data.BaseEntity;
+import org.springframework.data.annotation.*;
 
-import javax.persistence.*;
 
 /**
  * A simple {@link Address} entity for an account.
@@ -10,10 +10,11 @@ import javax.persistence.*;
  * @author Kenny Bastani
  * @author Josh Long
  */
-@Entity
+//@Entity
 public class Address extends BaseEntity {
 
-    private Long id;
+    @Id
+    private String id;
     private String street1;
     private String street2;
     private String state;
@@ -21,7 +22,7 @@ public class Address extends BaseEntity {
     private String country;
     private Integer zipCode;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
     private AddressType addressType;
 
     public Address() {
@@ -39,13 +40,11 @@ public class Address extends BaseEntity {
         this.zipCode = zipCode;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

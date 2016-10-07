@@ -5,8 +5,11 @@ import com.example.address.Address;
 import com.example.customer.Customer;
 import com.example.data.BaseEntity;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.*;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,34 +18,34 @@ import java.util.Set;
  * @author Kenny Bastani
  * @author Josh Long
  */
-@Entity
+
 public class Account extends BaseEntity {
 
-    private Long id;
+    @Id
+    private String id;
     private String userId;
     private String accountNumber;
     private Boolean defaultAccount;
-    private Set<CreditCard> creditCards;
-    private Set<Address> addresses;
+    private List<CreditCard> creditCards = new ArrayList<>();
+    private List<Address> addresses = new ArrayList<>();
 
     public Account() {
     }
 
-    public Account(String userId, String accountNumber) {
+    public Account(String userId, String accountNumber, List<CreditCard>creditCards, List<Address>addresses) {
         this.userId = userId;
         this.accountNumber = accountNumber;
-        this.creditCards = new HashSet<>();
-        this.addresses = new HashSet<>();
+        this.creditCards = creditCards;
+        this.addresses = addresses;
         this.defaultAccount = false;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -70,22 +73,30 @@ public class Account extends BaseEntity {
         this.defaultAccount = defaultAccount;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Set<CreditCard> getCreditCards() {
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public List<CreditCard> getCreditCards() {
         return creditCards;
     }
 
-    public void setCreditCards(Set<CreditCard> creditCards) {
+    public void setCreditCards(List<CreditCard> creditCards) {
         this.creditCards = creditCards;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Set<Address> getAddresses() {
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public List<Address> getAddresses() {
         return addresses;
     }
 
-    public void setAddresses(Set<Address> addresses) {
+    public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
+    }
+
+    public void addCreditCard(CreditCard creditCard) {
+        creditCards.add(creditCard);
+    }
+
+    public void addAddress(Address address) {
+        addresses.add(address);
     }
 
     @Override

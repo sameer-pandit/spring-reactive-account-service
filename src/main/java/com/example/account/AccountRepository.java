@@ -1,10 +1,10 @@
 package com.example.account;
 
+import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
-import org.springframework.data.repository.PagingAndSortingRepository;
+//import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 /**
  * A {@link PagingAndSortingRepository} for the {@link Account} domain class that provides
@@ -13,6 +13,7 @@ import java.util.List;
  * @author Kenny Bastani
  * @author Josh Long
  */
-public interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
-    List<Account> findAccountsByUserId(@Param("userId") String userId);
+
+public interface AccountRepository extends ReactiveCrudRepository<Account, String> {
+    Flux<Account> findAccountsByUserId(@Param("userId") String userId);
 }

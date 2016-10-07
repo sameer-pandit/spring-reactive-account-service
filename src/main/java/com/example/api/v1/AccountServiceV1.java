@@ -1,3 +1,4 @@
+/*
 package com.example.api.v1;
 
 import java.util.ArrayList;
@@ -33,7 +34,8 @@ public class AccountServiceV1 {
     }
 
     public Flux<Account> getUserAccounts() {
-        /*WebClient webClient = new WebClient(new ReactorClientHttpConnector());
+        */
+/*WebClient webClient = new WebClient(new ReactorClientHttpConnector());
         List<Account> account=null;
         String userUrl = "http://user-service/uaa/v1/me";
         Mono<User> user = webClient
@@ -49,10 +51,16 @@ public class AccountServiceV1 {
                     .forEach(card ->
                             card.setNumber(card.getNumber()
                                     .replaceAll("([\\d]{4})(?!$)", "****-"))));
-        }*/
+        }*//*
+
         List<Account> account = new ArrayList<>();
-        account.add(new Account("3","2322323"));
-        accountRepository.save(account);
-        return Flux.fromIterable(accountRepository.findAccountsByUserId("3"));
+
+//        account.add(new Account("3","2322323"));
+        //accountRepository.save(account);
+//        accountRepository.findAll().subscribe(System.out::println);
+
+//        return accountRepository.findAccountsByUserId("3");
+        return accountRepository.findAll();
     }
 }
+*/

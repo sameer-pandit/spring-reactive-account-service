@@ -1,3 +1,4 @@
+/*
 DELETE FROM customer;
 DELETE FROM account_addresses;
 DELETE FROM account_credit_cards;
@@ -13,3 +14,4 @@ INSERT INTO credit_card VALUES (0, unix_timestamp(now()), unix_timestamp(now()),
 SET @cc_id = LAST_INSERT_ID();
 INSERT INTO account_credit_cards VALUES (@account_id, @cc_id);
 INSERT INTO customer VALUES (0, unix_timestamp(now()), unix_timestamp(now()), 'john.doe@example.com', 'John', 'Doe', @account_id);
+*/

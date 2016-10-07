@@ -1,3 +1,4 @@
+/*
 package com.example.api.v1;
 
 import com.example.account.Account;
@@ -6,11 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import java.util.List;
 import reactor.core.publisher.*;
-import java.util.Optional;
 
-@RestController
 @RequestMapping(path = "/v1")
 public class AccountControllerV1 {
 
@@ -26,3 +24,4 @@ public class AccountControllerV1 {
         return accountService.getUserAccounts();
     }
 }
+*/

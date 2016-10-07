@@ -2,8 +2,8 @@ package com.example.customer;
 
 import com.example.account.Account;
 import com.example.data.BaseEntity;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 
 /**
  * The {@link Customer} entity is a root object in the customer bounded context.
@@ -11,10 +11,11 @@ import javax.persistence.*;
  * @author Kenny Bastani
  * @author Josh Long
  */
-@Entity
+//@Entity
 public class Customer extends BaseEntity {
 
-    private Long id;
+    @Id
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -30,13 +31,11 @@ public class Customer extends BaseEntity {
         this.account = account;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -64,7 +63,7 @@ public class Customer extends BaseEntity {
         this.email = email;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     public Account getAccount() {
         return account;
     }

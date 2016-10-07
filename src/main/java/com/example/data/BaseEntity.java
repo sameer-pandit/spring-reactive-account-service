@@ -3,10 +3,10 @@ package com.example.data;
 import com.example.account.Account;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+//import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+//import javax.persistence.EntityListeners;
+//import javax.persistence.MappedSuperclass;
 
 /**
  * An entity base class that is used for auditing purposes in the {@link Account}
@@ -15,14 +15,14 @@ import javax.persistence.MappedSuperclass;
  * @author Kenny Bastani
  * @author Josh Long
  */
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+//@MappedSuperclass
+//@EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
-    @CreatedDate
+//    @CreatedDate
     private Long createdAt;
 
-    @LastModifiedDate
+//    @LastModifiedDate
     private Long lastModified;
 
     public BaseEntity() {
